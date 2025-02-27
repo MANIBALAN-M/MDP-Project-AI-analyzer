@@ -1,4 +1,4 @@
-Glycerin (g),Potato Starch (g),Carbon (g),Gly/Starch Ratio,Carbon Content (%),Tensile Strength (MPa),Elongation at Break (%),Flexibility,Ratio,Heat (°C),Real Use Case
+Glycerin (g),Potato Starch (g),Carbon (g),Gly/Starch Ratio,Carbon Content (%),Tensile Strength (MPa),Elongation at Break (%),Flexibility,Ratio (Gly:Starch:Carbon),Heat (°C),Real Use Case
 10,10,1,1,4.76,14.5,66.5,High Flexibility,10:10:1.008,120-140°C,Soft 3D filaments
 10,10,1,1,4.76,14.5,66.5,High Flexibility,12:5:0.515,120-140°C,Packaging
 10,10,1,1,4.76,14.5,66.5,High Flexibility,10:14:0.509,120-140°C,Medical uses
