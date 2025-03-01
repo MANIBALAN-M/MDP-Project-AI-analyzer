@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="max-w-2xl mx-auto bg-white p-8 mt-10 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Predict Ratio(Gly:Starch:Carbon)</h1>
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Predict Ratio</h1>
 
         <div class="flex flex-col gap-4">
             <input type="number" id="tensileStrength" placeholder="Tensile Strength (MPa)" class="p-3 border rounded-md">
@@ -57,7 +57,7 @@
                 
                 console.log(response.data);  // Debugging output
 
-                ratioResult.textContent = `Predicted Ratio: ${response.data.ratio}`;
+                ratioResult.textContent = `Predicted Ratio (Gly:Starch:Carbon) : ${response.data.ratio}`;
                 ratioResult.classList.remove('hidden');
             } catch (err) {
                 console.error(err);  // Debugging output
