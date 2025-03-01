@@ -5,8 +5,12 @@ import re
 app = Flask(__name__)
 
 # Load the cleaned dataset
-data = pd.read_csv('cleaned_training_data.csv', dtype={'Ratio (Gly:Starch:Carbon)': str})
-data.columns = data.columns.str.strip()
+try:
+    data = pd.read_csv('cleaned_training_data.csv', dtype={'Ratio (Gly:Starch:Carbon)': str})
+    data.columns = data.columns.str.strip()  # Ensure column names are clean
+except Exception as e:
+    print(f"Error loading dataset: {e}")
+    data = None
 
 # Function to clean 'Heat (°C)' column
 def clean_heat_column(value):
@@ -18,44 +22,44 @@ def clean_heat_column(value):
     else:
         return None
 
-# Apply cleaning to 'Heat (°C)'
-data['Heat (°C)'] = data['Heat (°C)'].apply(clean_heat_column)
+# Apply cleaning to 'Heat (°C)' if dataset is loaded
+if data is not None and 'Heat (°C)' in data.columns:
+    data['Heat (°C)'] = data['Heat (°C)'].apply(clean_heat_column)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/get_ratio', methods=['POST'])
+def get_ratio():
     try:
-        flexibility_levels = data['Flexibility'].unique().tolist()
-    except KeyError:
-        return render_template('index.html', error="Error: 'Flexibility' column not found in the dataset.")
+        if data is None:
+            return jsonify({"error": "Dataset failed to load"}), 500
 
-    return render_template('index.html', flexibility_levels=flexibility_levels)
+        tensile_strength = request.json.get('tensile_strength')
+        elongation = request.json.get('elongation')
 
-@app.route('/get_data', methods=['POST'])
-def get_data():
-    selected_flexibility = request.json.get('flexibility')
-    
-    if not selected_flexibility:
-        return jsonify({"error": "No flexibility selected"}), 400
+        if tensile_strength is None or elongation is None:
+            return jsonify({"error": "Missing input values"}), 400
 
-    try:
-        # Filter data based on selected flexibility
-        filtered_data = data[data['Flexibility'] == selected_flexibility]
+        # Convert inputs to float
+        tensile_strength = float(tensile_strength)
+        elongation = float(elongation)
 
-        if filtered_data.empty:
-            return jsonify({"error": "No data found for the selected flexibility"}), 404
+        # Check if required columns exist
+        required_columns = ['Tensile Strength (MPa)', 'Elongation at Break (%)', 'Ratio (Gly:Starch:Carbon)']
+        if not all(col in data.columns for col in required_columns):
+            return jsonify({"error": "Dataset missing required columns"}), 500
 
-        # Aggregate data for each Real Use Case
-        aggregated_data = filtered_data.groupby('Real Use Case').agg({
-            'Heat (°C)': 'mean',
-            'Tensile Strength (MPa)': 'mean',
-            'Elongation at Break (%)': 'mean',
-            'Ratio (Gly:Starch:Carbon)': lambda x: x.mode().iloc[0] if not x.empty else x.iloc[0]
-        }).reset_index()
+        # Find the closest matching row
+        closest_row = data.iloc[((data['Tensile Strength (MPa)'] - tensile_strength).abs() + 
+                                 (data['Elongation at Break (%)'] - elongation).abs()).idxmin()]
+        
+        ratio = closest_row['Ratio (Gly:Starch:Carbon)']
 
-        return jsonify(aggregated_data.to_dict(orient='records'))
-    except KeyError as e:
-        return jsonify({"error": f"Missing column: {str(e)}"}), 500
+        return jsonify({"ratio": ratio})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
-
