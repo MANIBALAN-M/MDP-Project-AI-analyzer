@@ -1,40 +1,38 @@
 Glycerin (g),Potato Starch (g),Carbon (g),Gly/Starch Ratio,Carbon Content (%),Tensile Strength (MPa),Elongation at Break (%),Flexibility,Heat (°C),Real Use Case,Ratio (Gly:Starch:Carbon)
-19,12,1.37,0.45,18.58,6.29,35.98,High Flexibility,120-140°C,Consumer goods,19:12:1.37
-5,8,3.29,2.98,15.69,11.53,34.91,Low Flexibility,160-180°C,Packaging,5:8:3.29
-15,10,3.86,1.31,15.98,5.11,77.4,High Flexibility,160-180°C,Semi-rigid parts,15:10:3.86
-7,5,1.27,0.44,6.44,9.92,77.64,High Flexibility,160-180°C,Molding,7:5:1.27
-18,5,3.56,1.45,14.84,11.11,60.49,High Flexibility,120-140°C,Packaging,18:5:3.56
-10,17,3.68,0.28,15.11,9.29,60.79,Low Flexibility,140-160°C,Soft 3D filaments,10:17:3.68
-18,8,1.11,1.94,3.31,16.38,62.74,High Flexibility,140-160°C,Molding,18:8:1.11
-8,16,3.21,1.36,19.22,19.3,42.16,High Flexibility,120-140°C,Medical uses,8:16:3.21
-17,14,2.45,0.53,15.85,17.07,20.59,Moderate Flexibility,160-180°C,Abrasive tools,17:14:2.45
-13,17,2.51,1.9,3.68,12.8,28.21,High Flexibility,140-160°C,Semi-rigid parts,13:17:2.51
-18,18,1.51,2.86,4.63,12.89,20.11,Moderate Flexibility,140-160°C,Semi-rigid parts,18:18:1.51
-13,8,3.92,0.69,2.01,6.68,22.75,Low Flexibility,140-160°C,Molding,13:8:3.92
-9,16,2.73,1.83,6.44,11.5,88.33,Low Flexibility,160-180°C,Semi-rigid parts,9:16:2.73
-15,16,1.81,1.33,13.68,12.46,96.37,Moderate Flexibility,140-160°C,Structural components,15:16:1.81
-17,13,3.1,1.5,3.92,12.26,43.8,Low Flexibility,160-180°C,Consumer goods,17:13:3.1
-10,14,2.13,0.61,16.47,12.79,41.04,Low Flexibility,160-180°C,Structural components,10:14:2.13
-17,8,3.16,1.69,15.15,6.19,44.93,High Flexibility,120-140°C,Packaging,17:8:3.16
-17,8,3.99,1.32,8.74,16.05,20.05,High Flexibility,140-160°C,Soft 3D filaments,17:8:3.99
-8,8,3.73,0.49,19.89,6.89,54.79,High Flexibility,120-140°C,Packaging,8:8:3.73
-16,7,3.12,2.89,9.21,18.17,23.44,Low Flexibility,140-160°C,Soft 3D filaments,16:7:3.12
-14,9,2.48,1.0,5.36,11.67,71.4,Low Flexibility,140-160°C,Semi-rigid parts,14:9:2.48
-17,16,2.63,1.79,10.83,5.47,36.06,Moderate Flexibility,160-180°C,Structural components,17:16:2.63
-9,18,1.41,1.22,19.71,19.71,41.39,Moderate Flexibility,120-140°C,Structural components,9:18:1.41
-15,17,1.76,2.82,16.61,10.1,27.29,High Flexibility,140-160°C,Packaging,15:17:1.76
-15,11,3.99,0.48,12.14,5.23,71.4,Low Flexibility,160-180°C,Consumer goods,15:11:3.99
-9,11,1.67,2.31,19.55,8.66,94.89,Moderate Flexibility,160-180°C,Structural components,9:11:1.67
-5,12,3.77,0.29,17.75,5.32,32.87,Low Flexibility,160-180°C,Packaging,5:12:3.77
-5,15,1.17,2.39,19.72,19.47,82.85,High Flexibility,140-160°C,Packaging,5:15:1.17
-5,15,3.04,2.81,5.61,9.83,72.48,Low Flexibility,120-140°C,Medical uses,5:15:3.04
-10,18,3.79,1.58,2.9,15.25,33.49,Low Flexibility,140-160°C,Soft 3D filaments,10:18:3.79
-10,19,2.85,2.39,4.99,17.96,78.09,High Flexibility,140-160°C,Packaging,10:19:2.85
-15,14,1.87,2.72,8.45,7.39,37.21,Low Flexibility,120-140°C,Molding,15:14:1.87
-16,5,1.93,0.85,13.3,17.31,49.49,Low Flexibility,140-160°C,Semi-rigid parts,16:5:1.93
-16,7,2.08,0.95,10.29,7.89,21.09,High Flexibility,140-160°C,Packaging,16:7:2.08
-15,18,2.33,2.22,19.98,13.99,65.13,High Flexibility,120-140°C,Packaging,15:18:2.33
-11,9,1.59,1.51,15.86,5.29,45.17,Low Flexibility,120-140°C,Molding,11:9:1.59
-13,8,1.06,1.8,13.09,14.68,75.15,High Flexibility,140-160°C,Abrasive tools,13:8:1.06
-9,8,1.2,1.82,13.14,19.26,64.37,Moderate Flexibility,160-180°C,Structural components,9:8:1.2
-19,6,1.29,2.52,2.8,10.54,20.99,Low Flexibility,120-140°C,Molding,19:6:1.29
+7,18,3.14,0.94,9.43,47.9,49.98,High Flexibility,160-180°C,Packaging,7:18:3.14
+17,17,3.51,2.51,19.5,44.6,49.89,Moderate Flexibility,120-140°C,Consumer goods,17:17:3.51
+15,13,0.77,2.9,17.35,8.1,30.95,High Flexibility,140-160°C,Structural components,15:13:0.77
+18,5,0.55,2.03,19.43,46.3,95.9,Low Flexibility,160-180°C,Molding,18:5:0.55
+13,7,1.31,0.83,10.67,25.9,84.36,High Flexibility,120-140°C,Soft 3D filaments,13:7:1.31
+15,5,1.51,0.43,16.27,5.82,75.1,Moderate Flexibility,140-160°C,Soft 3D filaments,15:5:1.51
+17,10,3.01,0.8,5.76,27.71,20.1,Moderate Flexibility,140-160°C,Soft 3D filaments,17:10:3.01
+19,7,1.74,0.36,12.82,44.81,66.11,High Flexibility,140-160°C,Packaging,19:7:1.74
+16,8,2.36,0.39,8.54,24.74,71.02,High Flexibility,160-180°C,Abrasive tools,16:8:2.36
+11,10,2.77,1.61,18.03,37.8,29.75,High Flexibility,140-160°C,Molding,11:10:2.77
+14,17,1.6,0.47,14.37,47.66,74.47,Low Flexibility,120-140°C,Abrasive tools,14:17:1.6
+11,17,3.82,1.21,5.55,43.73,68.58,High Flexibility,160-180°C,Soft 3D filaments,11:17:3.82
+5,5,0.55,1.6,7.57,48.43,31.69,Low Flexibility,120-140°C,Consumer goods,5:5:0.55
+12,7,1.66,2.02,15.45,36.15,47.78,High Flexibility,160-180°C,Molding,12:7:1.66
+15,18,3.67,2.04,11.31,44.73,54.54,High Flexibility,120-140°C,Consumer goods,15:18:3.67
+13,18,1.21,1.38,14.58,10.79,48.63,Low Flexibility,120-140°C,Structural components,13:18:1.21
+6,7,0.77,0.79,6.75,32.18,88.92,Moderate Flexibility,140-160°C,Semi-rigid parts,6:7:0.77
+7,15,2.17,2.26,10.59,26.5,73.14,Low Flexibility,120-140°C,Consumer goods,7:15:2.17
+10,12,3.64,1.97,4.84,12.74,88.49,Moderate Flexibility,120-140°C,Semi-rigid parts,10:12:3.64
+13,13,1.75,1.11,8.51,44.14,40.56,Moderate Flexibility,120-140°C,Packaging,13:13:1.75
+17,19,1.41,0.77,6.79,30.73,73.71,High Flexibility,120-140°C,Semi-rigid parts,17:19:1.41
+17,16,1.99,2.05,15.49,40.89,87.09,Moderate Flexibility,120-140°C,Molding,17:16:1.99
+18,17,1.93,1.26,6.88,17.32,55.59,Moderate Flexibility,120-140°C,Structural components,18:17:1.93
+15,18,3.39,0.31,5.99,39.71,95.03,High Flexibility,120-140°C,Abrasive tools,15:18:3.39
+15,11,1.26,1.22,18.37,6.23,35.98,Low Flexibility,160-180°C,Semi-rigid parts,15:11:1.26
+18,9,3.92,0.72,16.83,27.92,63.91,Moderate Flexibility,160-180°C,Molding,18:9:3.92
+8,6,2.17,2.93,18.41,42.56,72.34,High Flexibility,160-180°C,Packaging,8:6:2.17
+5,18,1.46,1.99,11.07,22.82,23.3,Low Flexibility,120-140°C,Molding,5:18:1.46
+6,11,1.59,0.7,18.91,12.62,61.47,High Flexibility,140-160°C,Packaging,6:11:1.59
+15,14,2.89,1.78,5.17,30.87,23.24,High Flexibility,160-180°C,Packaging,15:14:2.89
+16,8,2.2,1.33,12.82,30.34,63.8,Moderate Flexibility,120-140°C,Abrasive tools,16:8:2.2
+5,13,3.87,2.39,10.81,28.66,80.69,Low Flexibility,120-140°C,Medical uses,5:13:3.87
+7,9,3.36,1.87,18.57,44.65,45.24,Low Flexibility,120-140°C,Structural components,7:9:3.36
+15,11,2.69,1.37,4.66,46.29,66.23,Low Flexibility,120-140°C,Semi-rigid parts,15:11:2.69
+10,11,1.18,1.55,5.2,27.75,79.67,Low Flexibility,160-180°C,Molding,10:11:1.18
+18,15,2.42,0.24,5.49,29.5,81.84,Moderate Flexibility,120-140°C,Medical uses,18:15:2.42
+18,16,1.62,1.44,3.03,49.24,92.54,Moderate Flexibility,120-140°C,Semi-rigid parts,18:16:1.62
