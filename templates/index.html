@@ -3,90 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexibility Use Case App</title>
+    <title>Ratio Predictor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <div class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-lg shadow-lg">
-        <h1 class="text-4xl font-bold mb-6 text-center text-blue-700">Flexibility Selector</h1>
-        <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-6">
-            <label for="flexibility" class="font-semibold">Select Flexibility:</label>
-            <select id="flexibility" required class="p-3 border rounded-md">
-                <option value="">--Select--</option>
-                {% for level in flexibility_levels %}
-                <option value="{{ level }}">{{ level }}</option>
-                {% endfor %}
-            </select>
-            <button id="getData" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">Get Data</button>
+    <div class="max-w-2xl mx-auto bg-white p-8 mt-10 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Predict Ratio</h1>
+
+        <div class="flex flex-col gap-4">
+            <input type="number" id="tensileStrength" placeholder="Tensile Strength (MPa)" class="p-3 border rounded-md">
+            <input type="number" id="elongation" placeholder="Elongation at Break (%)" class="p-3 border rounded-md">
+            <button id="getRatio" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+                Get Ratio
+            </button>
         </div>
 
-        <div id="loading" class="hidden text-center">
+        <div id="loading" class="hidden text-center mt-4">
             <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
-            <p class="mt-2 text-gray-600">Loading data...</p>
+            <p class="mt-2 text-gray-600">Fetching ratio...</p>
         </div>
 
-        <div id="error" class="hidden text-center text-red-500 mb-4"></div>
+        <div id="ratioResult" class="text-center text-xl font-bold text-gray-700 mt-4 hidden"></div>
 
-        <div id="results" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4 text-center text-gray-700">Aggregated Results by Real Use Case</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full table-auto border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="border px-4 py-3 bg-blue-600 text-white">Real Use Case</th>
-                            <th class="border px-4 py-3 bg-blue-600 text-white">Heat (°C)</th>
-                            <th class="border px-4 py-3 bg-blue-600 text-white">Tensile Strength (MPa)</th>
-                            <th class="border px-4 py-3 bg-blue-600 text-white">Elongation at Break (%)</th>
-                            <th class="border px-4 py-3 bg-blue-600 text-white">Ratio</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody"></tbody>
-                </table>
-            </div>
-        </div>
+        <div id="error" class="text-center text-red-500 mt-4 hidden"></div>
     </div>
 
     <script>
-        document.getElementById('getData').addEventListener('click', async () => {
-            const flexibility = document.getElementById('flexibility').value;
+        document.getElementById('getRatio').addEventListener('click', async () => {
+            const tensileStrength = document.getElementById('tensileStrength').value;
+            const elongation = document.getElementById('elongation').value;
+            const ratioResult = document.getElementById('ratioResult');
+            const errorDiv = document.getElementById('error');
             const loading = document.getElementById('loading');
-            const error = document.getElementById('error');
-            const results = document.getElementById('results');
-            const resultsBody = document.getElementById('resultsBody');
 
-            if (!flexibility) {
-                error.textContent = 'Please select a flexibility level.';
-                error.classList.remove('hidden');
-                results.classList.add('hidden');
+            // Clear previous results
+            ratioResult.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+            loading.classList.remove('hidden');
+
+            if (!tensileStrength || !elongation) {
+                errorDiv.textContent = "Please enter both values.";
+                errorDiv.classList.remove('hidden');
+                loading.classList.add('hidden');
                 return;
             }
 
-            loading.classList.remove('hidden');
-            error.classList.add('hidden');
-            results.classList.add('hidden');
-
             try {
-                const response = await axios.post('/get_data', { flexibility });
-                const data = response.data;
-
-                resultsBody.innerHTML = '';
-                data.forEach(row => {
-                    resultsBody.innerHTML += `
-                        <tr class="odd:bg-white even:bg-gray-100">
-                            <td class="border px-4 py-3">${row['Real Use Case']}</td>
-                            <td class="border px-4 py-3">${row['Heat (°C)'].toFixed(2)}</td>
-                            <td class="border px-4 py-3">${row['Tensile Strength (MPa)'].toFixed(2)}</td>
-                            <td class="border px-4 py-3">${row['Elongation at Break (%)'].toFixed(2)}</td>
-                            <td class="border px-4 py-3">${row['Ratio (Gly:Starch:Carbon)']}</td>
-                        </tr>
-                    `;
+                const response = await axios.post('/get_ratio', { 
+                    tensile_strength: tensileStrength, 
+                    elongation: elongation 
                 });
+                
+                console.log(response.data);  // Debugging output
 
-                results.classList.remove('hidden');
+                ratioResult.textContent = `Predicted Ratio: ${response.data.ratio}`;
+                ratioResult.classList.remove('hidden');
             } catch (err) {
-                error.textContent = err.response?.data?.error || 'An error occurred while fetching data.';
-                error.classList.remove('hidden');
+                console.error(err);  // Debugging output
+                errorDiv.textContent = err.response?.data?.error || "Error retrieving ratio.";
+                errorDiv.classList.remove('hidden');
             } finally {
                 loading.classList.add('hidden');
             }
@@ -94,4 +70,3 @@
     </script>
 </body>
 </html>
-
